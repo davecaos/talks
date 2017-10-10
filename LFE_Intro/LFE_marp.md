@@ -8,21 +8,11 @@
 
 ![](http://lfe.io/assets/images/other_images/LispFlavoredErlang-small-square.png)
 
-#  Enter the Erlang 🐲🐉 with LFE
+#  Enter the Erlang :dragon_face::dragon: with LFE
 
 #### Todo lo que necesitas para ser un crack :tiger:
 
----
-<!-- *template: gaia -->
-# ```(lisp (flavoured (erlang)))```
 
-LFE es un dialecto de LISP creado por
-[*Roberto Virding*](https://twitter.com/rvirding) sobre la Erlang VM (beam).
-
-Es un Lisp-2+, LFE tiene diferentes namespaces.
-Podes tener una fun  `help` y una var `help`
-
-![50% rigth](images/robert_virdig_hippie.jpg)
 
 ---
 <!-- *template: invert -->
@@ -30,9 +20,14 @@ Podes tener una fun  `help` y una var `help`
 
 ---
 <!-- *template: invert -->
+# **<mark>¿Qué es Erlang?</mark>**
+![130 % center](images/castlevania1.jpg)
+
+---
+<!-- *template: invert -->
 
 # **<mark>¿Por qué Erlang?</mark>**
-- **<mark>Es una tecnología probada con +:three::zero: años en la ~~trinchera~~ industria</mark>**
+- **<mark>Es una tecnología probada con +:three::zero: años en la ~~trinchera~~ industria :phone:→:computer:→:iphone:</mark>**
 - **<mark>Manejo de concurrencia de forma sana:grey_exclamation:</mark>**
 - **<mark> Soft-real time server side</mark>**
 - **<mark>Capacidad de Tolerancia a fallos</mark>**
@@ -43,9 +38,17 @@ Podes tener una fun  `help` y una var `help`
 ---
 <!-- *template: gaia -->
 
-###### No tenés que saber  <span style="background-color:red;">OTP</span>:heavy_exclamation_mark:
-###### Si sabés un poco de Lisp, podes aprender el ecosistema sobre la marcha 🚀
+### No tenés que saber <span style="background-color:red;"> OTP:grey_exclamation:</span>
+##### Si sabés un poco de Lisp, podes aprender el ecosistema sobre la marcha <span style="background-color:white;">.:bow::books:.</span>
 ![150% center](images/jurassic_park_unix.jpg)
+
+---
+<!-- *template: gaia -->
+#### Erlang es piola :100::heavy_exclamation_mark: para soft real time :alarm_clock:
+
+·Real :alarm_clock:  -> Perder un deadline es una falla total del sistema
+
+·Soft :ice_cream: Real :alarm_clock:  -> La utilidad de un resultado se degrada después del deadline:chart_with_downwards_trend:, pero sigue siendo útil. En sistemas de streaming se valora fluidez del servicio.
 
 ---
 ## OTP: Patrones de diseño posta 
@@ -53,8 +56,24 @@ Podes tener una fun  `help` y una var `help`
 
 
 ---
+## El Actor Model 
+![70% center](images/gangof4.jpg)
+
+---
+<!-- *template: gaia -->
+# ```(lisp (flavoured (erlang)))```
+
+LFE es un dialecto de LISP creado por
+[*Roberto Virding*](https://twitter.com/rvirding) sobre la Erlang VM.
+
+Es un Lisp2+, LFE tiene diferentes namespaces.
+Podes tener una fun  `help` y una var `help`
+
+![50% rigth](images/robert_virdig_hippie.jpg)
+
+---
 # Números
-  Los enteron pueden ser tan grandes como quieras o te quedás sin memoria, lo que suceda primero :sweat_smile:
+  <html>Los enteron pueden ser tan grandes como quieras o te quedás sin memoria, lo que suceda primero :sweat_smile:</html>
 
 ```lisp
 lfe> ( + 1000000000  999999999999999999999999999999999)
@@ -108,6 +127,9 @@ true
 ### Binarios -> blob
 
 
+---
+## Erlang viene con :two: 🛢️ DBs build-in
+### ETS y Mnesia
 
 
 ---
@@ -119,7 +141,7 @@ true
 
 ### Módulos
 
-http://exercism.io/languages/lfe/about
+En Erlang los modulos contienen las funciones y estas tienen
 ---
 <!-- *template: invert -->
 ![bg](images/aburdisio-01.jpg)
