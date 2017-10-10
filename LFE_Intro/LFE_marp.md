@@ -19,8 +19,9 @@
 ![bg](images/comic_erlang_.png)
 
 ---
-<!-- *template: invert -->
-# **<mark>¿Qué es Erlang?</mark>**
+<!-- *template: gaia -->
+# **<span style="background-color:red;">¿Qué es Erlang?</span>**
+![bg](images/castlevania1.jpg)
 ![130 % center](images/castlevania1.jpg)
 
 ---
@@ -40,7 +41,7 @@
 
 ### No tenés que saber <span style="background-color:red;"> OTP:grey_exclamation:</span>
 ##### Si sabés un poco de Lisp, podes aprender el ecosistema sobre la marcha <span style="background-color:white;">.:bow::books:.</span>
-![150% center](images/jurassic_park_unix.jpg)
+![135% center](images/jurassic_park_unix.jpg)
 
 ---
 <!-- *template: gaia -->
@@ -49,6 +50,7 @@
 ·Real :alarm_clock:  -> Perder un deadline es una falla total del sistema
 
 ·Soft :ice_cream: Real :alarm_clock:  -> La utilidad de un resultado se degrada después del deadline:chart_with_downwards_trend:, pero sigue siendo útil. En sistemas de streaming se valora fluidez del servicio.
+
 
 ---
 ## OTP: Patrones de diseño posta 
@@ -73,18 +75,22 @@ Podes tener una fun  `help` y una var `help`
 
 ---
 # Números
-  <html>Los enteron pueden ser tan grandes como quieras o te quedás sin memoria, lo que suceda primero :sweat_smile:</html>
+  Los enteron pueden ser tan grandes como quieras o te quedás sin memoria, lo que suceda primero  :sweat_smile:
 
 ```lisp
 lfe> ( + 1000000000  999999999999999999999999999999999)
 1000000000000000000000000999999999
 ```
 
-También hay de punto flotante, pero a nadie le importa **(?)**
+Hay de punto flotante, pero a nadie le importa **(?)**
+Tampoco hay **'nan** ni **'infinity**, los tenes que fabricar.
 
 ```lisp
 lfe> ( /  1000000444  991)
 1009082.1836528758
+lfe> (/ 1.0  0.0)
+exception error: error in arithmetic expression
+  in (erlang : / 1.0 0.0)
 ```
 
 
@@ -128,8 +134,24 @@ true
 
 
 ---
-## Erlang viene con :two: 🛢️ DBs build-in
-### ETS y Mnesia
+### Ejemplo de Exersism 
+
+```lisp
+(defmodule rna-transcription
+  (export (to-rna 1)))
+
+(defun to-rna-char
+    ([#\G] #\C)
+    ([#\C] #\G)
+    ([#\T] #\A)
+    ([#\A] #\U))
+
+(defun to-rna (dnaList)
+    (lists:map #'to-rna-char/1 dnaList))
+```
+---
+## Erlang viene con :three: 🛢️ DBs build-in
+### Las mas usadas son ETS y Mnesia
 
 
 ---
