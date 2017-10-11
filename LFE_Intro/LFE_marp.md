@@ -11,6 +11,7 @@
 #  Enter the Erlang :dragon_face::dragon: with LFE
 
 #### Todo lo que necesitas para ser un crack :tiger:
+#### por David Cao
 
 ---
 <!-- *template: gaia -->
@@ -45,6 +46,8 @@
 
 ·Soft :ice_cream: Real :alarm_clock:  -> La utilidad de un resultado se degrada después del deadline:chart_with_downwards_trend:, pero sigue siendo útil. En sistemas de streaming se valora fluidez del servicio.
 
+La mayoría de los servicios son 24/7 soft-real time
+
 
 ---
 
@@ -60,16 +63,18 @@
 En Erlang los actores son procesos livianos aislados de la beam (NO son hilos del SO), no comparten memoria o no deberían (?)
 * Se comunican por msg :envelope: (mutabilidad) 
 * Tiene su propio __mail box__ :mailbox_with_mail:
-* No locks/mutexs para la concurrencia :ok_hand::100: :heavy_exclamation_mark:
+* No :lock: lock/mutex para la concurrencia :ok_hand::100: :heavy_exclamation_mark:
 * Cada actor tiene su propio garbage collector
 * Cualquier parecido con la POO es pura coinidencia(?)
 
 ---
 <!-- *template: gaia -->
 ## Behaviour
-Es un patrón de diseño desarrollado en un módulo, es parecido a la herencia en POO o una interfaz en Java.
+Es un patrón de diseño __AH RE__ desarrollado en un módulo, es parecido a la herencia en POO o una interfaz en Java.
 
 Una cierta cantidad de callbacks (firma) tienen que ser definidos para que el __comportamiento__ funcione.
+
+![70% center](images/venn-diagram-beaver-duck.png) 
 
 ---
 ![bg](images/1984-movie.jpg)
@@ -94,7 +99,7 @@ La idea es separa la funcionalidad del manejo de la concurrencia del servidor a 
 __handle_call__: llamadas síncronas (esperan respuesta)
 __handle_cast__: llamadas asíncronas (Sin esperar respuesta)
 
-Lo qur uno programe destro de cierta llamada va a ser servido por un proceso de la beam.
+Lo qur uno programe dentro del handle va a ser servido por un proceso de la beam.
 
 
 ---
@@ -166,8 +171,33 @@ true
 
 ---
 
-### Binarios -> blob
+### Tuplas
 
+Podes construir tuplas, tripletas, cuartetos ... 
+
+```lisp
+lfe> (tuple 'ok "I am a pickle!") 🥒
+#("I am a pickle!")
+lfe> (tuple 1 2 3 4 5)
+#(1 2 3 4 5)
+```
+```lisp
+lfe> #(1 9)
+#(1 9)
+lfe> (=:= #(1 9) (tuple 1 9))
+true
+```
+---
+
+#### Módulos, Funciones y Pattern Matching
+```lisp
+(defmodule conversion
+  (export (conversion-metrica 1)))
+
+(defun convert-length
+  (((tuple 'centimetro x)) (tuple 'pulgada (/ x 2.54)))
+  (((tuple 'pulgada y)) (tuple 'centimetro (* y 2.54))))
+```
 
 ---
 ### Ejemplo de Exersism 
@@ -217,6 +247,8 @@ true
 ### Módulos
 
 En Erlang los modulos contienen las funciones y estas tienen
+
+
 ---
 <!-- *template: invert -->
 ![bg](images/aburdisio-01.jpg)
@@ -231,3 +263,5 @@ En Erlang los modulos contienen las funciones y estas tienen
 ---
 <!-- template: invert -->
 ![bg](images/lionel.jpg)
+
+---
