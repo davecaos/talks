@@ -258,7 +258,7 @@ Pattern Matching es conceptualmente similiar al dispacher dinámico de un lengua
 ![bg](images/computerwelt.jpg)
 __ETS__ (Erlang Term Storage) es una BD en memoria para guardar todo tipo de termino Erlang 
 
-__DETS__ (Disk ETS) es similir a la ETS pero con persistencia en disco con un límite de 2G.
+__DETS__ (Disk ETS) es similar a la ETS pero con persistencia en disco con un límite de 2G.
 
 __Mnesia__ es una capa comstruida sobre la ETS y la DETS que permite transaciones.
 
