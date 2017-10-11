@@ -275,3 +275,5 @@ Las mas usadas son ETS y Mnesia
 # Dieselpunk
 
 ---
+<!-- template: invert -->
+![bg](images/lionel.jpg)
