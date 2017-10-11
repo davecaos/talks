@@ -252,6 +252,8 @@ Pattern Matching es conceptualmente similiar al dispacher dinámico de un lengua
 (defun to-rna (dnaList)
     (lists:map #'to-rna-char/1 dnaList))
 ```
+---
+<!-- *template: gaia -->
 ## Erlang viene con :three: 🛢️ DBs build-in
 ![bg](images/computerwelt.jpg)
 ETS (Erlang Term Storage) es una BD en memoria para guardar todo tipo de termino Erlang 
@@ -271,9 +273,5 @@ Las mas usadas son ETS y Mnesia
 <!-- *template: invert -->
 ![bg](images/aburdisio-01.jpg)
 # Dieselpunk
-
----
-<!-- template: invert -->
-![bg](images/lionel.jpg)
 
 ---
