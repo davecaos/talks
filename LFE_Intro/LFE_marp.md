@@ -12,12 +12,6 @@
 
 #### Todo lo que necesitas para ser un crack :tiger:
 
-
-
----
-<!-- *template: invert -->
-![bg](images/comic_erlang_.png)
-
 ---
 <!-- *template: gaia -->
 # **<span style="background-color:red;">¿Qué es Erlang?</span>**
@@ -53,13 +47,55 @@
 
 
 ---
+
 ## OTP: Patrones de diseño posta 
 ![70% center](images/gangof4.jpg)
 
 
 ---
-## El Actor Model 
-![70% center](images/gangof4.jpg)
+![bg](images/das_Actor_Modell.jpg)
+<!-- *template: gaia -->
+
+# El Actor Model
+En Erlang los actores son procesos livianos aislados de la beam (NO son hilos del SO), no comparten memoria o no deberían (?)
+* Se comunican por msg :envelope: (mutabilidad) 
+* Tiene su propio __mail box__ :mailbox_with_mail:
+* No locks/mutexs para la concurrencia :ok_hand::100: :heavy_exclamation_mark:
+* Cada actor tiene su propio garbage collector
+* Cualquier parecido con la POO es pura coinidencia(?)
+
+---
+<!-- *template: gaia -->
+## Behaviour
+Es un patrón de diseño desarrollado en un módulo, es parecido a la herencia en POO o una interfaz en Java.
+
+Una cierta cantidad de callbacks (firma) tienen que ser definidos para que el __comportamiento__ funcione.
+
+---
+![bg](images/1984-movie.jpg)
+<!-- *template: gaia -->
+## Supervisor
+El supervisor es un __behaviour__ responsable de arrancar, parar y monitorear sus procesos hijos.
+
+Siempre es un nodo del arbol de procesos, en cambio los procesos worker son hoja o terminales.
+
+![120% center](images/sup-tree.png)
+
+
+
+
+---
+
+<!-- *template: gaia -->
+## El Gen Server aka Microservicios 
+Es el patrón para escribir servidores genericos en erlang.
+La idea es separa la funcionalidad del manejo de la concurrencia del servidor a travez de callbacks.
+
+__handle_call__: llamadas síncronas (esperan respuesta)
+__handle_cast__: llamadas asíncronas (Sin esperar respuesta)
+
+Lo qur uno programe destro de cierta llamada va a ser servido por un proceso de la beam.
+
 
 ---
 <!-- *template: gaia -->
@@ -137,6 +173,23 @@ true
 ### Ejemplo de Exersism 
 
 ```lisp
+(defmodule leap
+  (export all))
+
+(defun leap-year
+  ((year)  (when (== 0 (rem year 400)))
+    'true)
+  ((year)  (when (== 0 (rem year 100)))
+    'false)
+  ((year)  (when (== 0 (rem year 4)))
+    'true)
+  ((_year)
+    'false))
+```
+---
+### Ejemplo de Exersism 
+
+```lisp
 (defmodule rna-transcription
   (export (to-rna 1)))
 
@@ -174,3 +227,7 @@ En Erlang los modulos contienen las funciones y estas tienen
 <!-- *template: invert -->
 ![bg](images/aburdisio-01.jpg)
 # Dieselpunk
+
+---
+<!-- template: invert -->
+![bg](images/lionel.jpg)
