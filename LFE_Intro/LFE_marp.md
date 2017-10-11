@@ -188,8 +188,28 @@ lfe> (=:= #(1 9) (tuple 1 9))
 true
 ```
 ---
+### Mapas :earth_americas:
+
+Son estrucuras clave valor
+
+```lisp
+lfe> (map 'key 'value)
+#M(key value)
+lfe>
+lfe> (map 'lfe  "Erlang" 'creator "Robert Virding")
+#M(lfe "Erlang" creator "Robert Virding")
+```
+
+---
 
 #### Módulos, Funciones y Pattern Matching
+```lisp
+lfe> (set (tuple 'error msg) (tuple 'error "Error :("))
+#(error "Internal error")
+lfe> msg
+"Error :("
+```
+Pattern Matching es conceptualmente similiar al dispacher dinámico de un lenguaje de POO
 ```lisp
 (defmodule conversion
   (export (conversion-metrica 1)))
@@ -232,21 +252,13 @@ true
 (defun to-rna (dnaList)
     (lists:map #'to-rna-char/1 dnaList))
 ```
----
 ## Erlang viene con :three: 🛢️ DBs build-in
-### Las mas usadas son ETS y Mnesia
+![bg](images/computerwelt.jpg)
+ETS (Erlang Term Storage) es una BD en memoria para guardar todo tipo de termino Erlang 
+DETS (Disk ETS) es similir a la ETS pero con persistencia en disco con un límite de 2G.
+Mnesia es una capa comstruida sobre la ETS y la DETS que permite transaciones.
 
-
----
-
-### Módulos
-
-
----
-
-### Módulos
-
-En Erlang los modulos contienen las funciones y estas tienen
+Las mas usadas son ETS y Mnesia
 
 
 ---
