@@ -1,8 +1,6 @@
 <!-- $theme: gaia -->
 <!-- page_number: false -->
 <!-- $size: 4:3 -->
-<!-- Marp(Markdown Presentation Writer)
-     https://yhatt.github.io/marp/ -->
 <!-- *template: invert -->
 
 
@@ -209,7 +207,8 @@ lfe> (set (tuple 'error msg) (tuple 'error "Error :("))
 lfe> msg
 "Error :("
 ```
-Pattern Matching es conceptualmente similiar al dispacher dinámico de un lenguaje de POO
+El nombre de un modulo es **atom()!**
+Además el Pattern Matching es conceptualmente similiar al dispacher dinámico en la POO.
 ```lisp
  (defmodule conversion
   (export (convert-length 1)))
@@ -218,6 +217,16 @@ Pattern Matching es conceptualmente similiar al dispacher dinámico de un lengua
   (((tuple 'centimeter x)) (tuple 'inch (/ x 2.54)))
   (((tuple 'inch y)) (tuple 'centimeter (* y 2.54))))
 ```
+
+---
+<!-- *template: invert -->
+#### Módulos, applicaciones y librerías
+
+En Erlang tener un **main(args ...)** no tiene mucho sentido (como punto de entrada), es mas para nostalgicos de otros lenguajes.
+
+Dado que que podes tener varios procesos escuchando.
+
+
 
 ---
 ### Ejemplo de Exersism 
