@@ -64,7 +64,7 @@ En Erlang los actores son procesos livianos aislados de la beam (NO son hilos de
 * Se comunican por msg :envelope: (mutabilidad) 
 * Tiene su propio __mail box__ :mailbox_with_mail:
 * No :lock: lock/mutex para la concurrencia :ok_hand::100: :heavy_exclamation_mark:
-* Cada actor tiene su propio garbage collector
+* Cada actor tiene su propio heap y garbage collector
 * Cualquier parecido con la POO es pura coinidencia(?)
 
 ---
@@ -211,12 +211,12 @@ lfe> msg
 ```
 Pattern Matching es conceptualmente similiar al dispacher dinámico de un lenguaje de POO
 ```lisp
-(defmodule conversion
-  (export (conversion-metrica 1)))
+ (defmodule conversion
+  (export (convert-length 1)))
 
 (defun convert-length
-  (((tuple 'centimetro x)) (tuple 'pulgada (/ x 2.54)))
-  (((tuple 'pulgada y)) (tuple 'centimetro (* y 2.54))))
+  (((tuple 'centimeter x)) (tuple 'inch (/ x 2.54)))
+  (((tuple 'inch y)) (tuple 'centimeter (* y 2.54))))
 ```
 
 ---
