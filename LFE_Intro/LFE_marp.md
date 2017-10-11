@@ -254,7 +254,7 @@ Pattern Matching es conceptualmente similiar al dispacher dinámico de un lengua
 ```
 ---
 <!-- *template: gaia -->
-## Erlang viene con :three:🛢️ DBs build-in
+## Erlang viene con 3🛢️ DBs build-in
 ![bg](images/computerwelt.jpg)
 __ETS__ (Erlang Term Storage) es una BD en memoria para guardar todo tipo de termino Erlang 
 
