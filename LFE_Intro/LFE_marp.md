@@ -254,11 +254,13 @@ Pattern Matching es conceptualmente similiar al dispacher dinámico de un lengua
 ```
 ---
 <!-- *template: gaia -->
-## Erlang viene con :three: 🛢️ DBs build-in
+## Erlang viene con :three:🛢️ DBs build-in
 ![bg](images/computerwelt.jpg)
-ETS (Erlang Term Storage) es una BD en memoria para guardar todo tipo de termino Erlang 
-DETS (Disk ETS) es similir a la ETS pero con persistencia en disco con un límite de 2G.
-Mnesia es una capa comstruida sobre la ETS y la DETS que permite transaciones.
+__ETS__ (Erlang Term Storage) es una BD en memoria para guardar todo tipo de termino Erlang 
+
+__DETS__ (Disk ETS) es similir a la ETS pero con persistencia en disco con un límite de 2G.
+
+__Mnesia__ es una capa comstruida sobre la ETS y la DETS que permite transaciones.
 
 Las mas usadas son ETS y Mnesia
 
