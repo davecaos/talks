@@ -175,7 +175,7 @@ Podes construir tuplas, tripletas, cuartetos ...
 
 ```lisp
 lfe> (tuple 'ok "I am a pickle!") 🥒
-#("I am a pickle!")
+#(ok "I am a pickle!")
 lfe> (tuple 1 2 3 4 5)
 #(1 2 3 4 5)
 ```
@@ -203,7 +203,7 @@ lfe> (map 'lfe  "Erlang" 'creator "Robert Virding")
 #### Módulos, Funciones y Pattern Matching
 ```lisp
 lfe> (set (tuple 'error msg) (tuple 'error "Error :("))
-#(error "Internal error")
+#(error "Error :(")
 lfe> msg
 "Error :("
 ```
