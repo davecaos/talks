@@ -49,7 +49,7 @@ La mayoría de los servicios son 24/7 soft-real time
 
 ---
 
-## OTP: Patrones de diseño posta 
+## OTP: Patrones de diseño posta
 ![70% center](images/gangof4.jpg)
 
 
@@ -59,7 +59,7 @@ La mayoría de los servicios son 24/7 soft-real time
 
 # El Actor Model
 En Erlang los actores son procesos livianos aislados de la beam (NO son hilos del SO), no comparten memoria o no deberían (?)
-* Se comunican por msg :envelope: (mutabilidad) 
+* Se comunican por msg :envelope: (mutabilidad)
 * Tiene su propio __mail box__ :mailbox_with_mail:
 * No :lock: lock/mutex para la concurrencia :ok_hand::100: :heavy_exclamation_mark:
 * Cada actor tiene su propio heap y garbage collector
@@ -72,7 +72,7 @@ Es un patrón de diseño __AH RE__ desarrollado en un módulo, es parecido a la 
 
 Una cierta cantidad de callbacks (firma) tienen que ser definidos para que el __comportamiento__ funcione.
 
-![70% center](images/venn-diagram-beaver-duck.png) 
+![70% center](images/venn-diagram-beaver-duck.png)
 
 ---
 ![bg](images/1984-movie.jpg)
@@ -90,7 +90,7 @@ Siempre es un nodo del arbol de procesos, en cambio los procesos worker son hoja
 ---
 
 <!-- *template: gaia -->
-## El Gen Server aka Microservicios 
+## El Gen Server aka Microservicios
 Es el patrón para escribir servidores genericos en erlang.
 La idea es separa la funcionalidad del manejo de la concurrencia del servidor a travez de callbacks.
 
@@ -171,7 +171,7 @@ true
 
 ### Tuplas
 
-Podes construir tuplas, tripletas, cuartetos ... 
+Podes construir tuplas, tripletas, cuartetos ...
 
 ```lisp
 lfe> (tuple 'ok "I am a pickle!") 🥒
@@ -229,7 +229,7 @@ Dado que que podes tener varios procesos escuchando.
 
 
 ---
-### Ejemplo de Exersism 
+### Ejemplo de Exersism
 
 ```lisp
 (defmodule leap
@@ -246,7 +246,7 @@ Dado que que podes tener varios procesos escuchando.
     'false))
 ```
 ---
-### Ejemplo de Exersism 
+### Ejemplo de Exersism
 
 ```lisp
 (defmodule rna-transcription
@@ -265,7 +265,7 @@ Dado que que podes tener varios procesos escuchando.
 <!-- *template: gaia -->
 ## Erlang viene con 3🛢️ DBs build-in
 ![bg](images/computerwelt.jpg)
-__ETS__ (Erlang Term Storage) es una BD en memoria para guardar todo tipo de termino Erlang 
+__ETS__ (Erlang Term Storage) es una BD en memoria para guardar todo tipo de termino Erlang
 
 __DETS__ (Disk ETS) es similar a la ETS pero con persistencia en disco con un límite de 2G.
 
