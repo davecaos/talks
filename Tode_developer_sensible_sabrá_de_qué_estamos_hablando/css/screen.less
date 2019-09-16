@@ -1,0 +1,465 @@
+@import "./reset.less";
+@import "./fonts/HelveticaNeue/font.css";
+@import "./fonts/Inconsolata/font.css";
+@import "./fonts/LeagueGothic/font.css";
+
+@typoFont: "Helvetica Neue LT Std";
+@codeFont: "Inconsolata";
+
+*, *:before, *:after {
+    /* OMG YES YOU CAN UNBREAK THE BOX MODEL <3 <3 <3 <3 <3 <3 */
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+    color: #222;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: @typoFont;
+    font-size: 48pt;
+    line-height: 1.2em;
+    visibility: visible;
+    font-feature-settings: "kern";
+    -moz-font-feature-settings: "kern";
+    -webkit-font-feature-settings: "kern";
+
+}
+
+// If you try to combine these into one rule, Chrome doesn't see it.
+// lol, computers.
+:-webkit-full-screen {
+    width: 100%;
+    height: 100%;
+}
+
+:-moz-full-screen {
+    width: 100%;
+    height: 100%;
+}
+
+:fullscreen {
+    width: 100%;
+    height: 100%;
+}
+
+p, a, li, li:before, h1, h2, h3, h4, h5, h6 {
+    text-shadow: 0 0 0.1em rgba(0,0,0,0.5);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-align: center;
+    font-weight: bold;
+    background-color: rgba(0,0,0,0.1);
+    margin: 0.4em -100%;
+}
+
+h1 {
+    font-size: 1.6em;
+    padding-top: 0.25em;
+}
+
+h2 {
+    font-size: 1.4em;
+    padding-top: 0.3em;
+}
+
+h3 {
+    font-size: 1.2em;
+    padding-top: 0.3em;
+}
+
+h4, h5, h6 {
+    font-size: 1.1em;
+    padding-top: 0.3em;
+}
+
+pre {
+    font-family: @codeFont;
+    font-size: 0.48em;
+    line-height: 1.2em;
+}
+
+ul, ol {
+    li {
+        margin-bottom: 0.5em;
+    }
+}
+
+// ul, ol {
+//     li {
+//         list-style: none;
+//         position: relative;
+
+//         &:before {
+//             color: #888;
+//             text-align: right;
+//             position: absolute;
+//             left: 0;
+//         }
+//     }
+// }
+
+// ul {
+//     li:before {
+//         content: ' ';
+//         width: 1em;
+//         height: 1em;
+//         margin-left: -1em;
+//         background: url(doge.svg);
+//         background-size: contain;
+//     }
+// }
+
+strong {
+    letter-spacing: 0.05em;
+}
+
+a {
+    color: black;
+}
+
+em {
+    font-style: normal;
+    text-decoration: underline;
+}
+
+.attribution {
+    font-size: 0.9em;
+}
+
+.slides {
+    z-index: 1;
+    position: fixed;
+    background: #ccc;
+    overflow: hidden;
+}
+
+.slides, .slides .background {
+    background-size: cover;
+    background-position: 50% 50%;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.slides .background {
+    z-index: 2;
+    position: absolute;
+    opacity: 0;
+    -webkit-transition: opacity 0.3s ease;
+    -moz-transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease;
+
+    &.active {
+        opacity: 1;
+    }
+}
+
+.slides section {
+    background-color: rgba(255, 255, 255, 0.8);
+    background-size: cover;
+    background-position: 50% 50%;
+
+    z-index: 10;
+    visibility: hidden;
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    left: 10%;
+    top: 10%;
+    margin: 0;
+    padding: 0 10%;
+    border: 0;
+    border-radius: 0.2em;
+
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    -moz-box-pack: center;
+    -moz-box-align: center;
+    box-pack: center;
+    box-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    -webkit-transform: scale(1.25);
+    -webkit-filter: grayscale(100%);
+    -webkit-transition: -webkit-filter 0.3s ease, -webkit-transform 0.3s ease, opacity 0.3s ease;
+    -moz-transform: scale(1.25);
+    -moz-filter: grayscale(100%);
+    -moz-transition: -moz-filter 0.3s ease, -moz-transform 0.3s ease, opacity 0.3s ease;
+    transform: scale(1.25);
+    filter: grayscale(100%);
+    transition: filter 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+
+    .slideContainer {
+        width: 100%;
+    }
+
+    &.current, &.out {
+        visibility: visible;
+    }
+
+    &.current {
+        opacity: 1;
+        -webkit-filter: grayscale(0);
+        -webkit-transform: scale(1);
+        -moz-filter: grayscale(0);
+        -moz-transform: scale(1);
+        filter: grayscale(0);
+        transform: scale(1);
+    }
+
+    &.out {
+        -webkit-transform: scale(0.75);
+        -moz-transform: scale(0.75);
+        transform: scale(0.75);
+    }
+
+    .fragment {
+        opacity: 0;
+        -webkit-transform: scale(1.25);
+        -webkit-filter: grayscale(100%);
+        -webkit-transition: -webkit-filter 0.3s ease, -webkit-transform 0.3s ease, opacity 0.3s ease;
+        -moz-transform: scale(1.25);
+        -moz-filter: grayscale(100%);
+        -moz-transition: -moz-filter 0.3s ease, -moz-transform 0.3s ease, opacity 0.3s ease;
+        transform: scale(1.25);
+        filter: grayscale(100%);
+        transition: filter 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+
+        &.active {
+            opacity: 1;
+            -webkit-transform: scale(1);
+            -webkit-filter: grayscale(0);
+            -moz-transform: scale(1);
+            -moz-filter: grayscale(0);
+            transform: scale(1);
+            filter: grayscale(0);
+        }
+    }
+
+    &.editor {
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+        background: none;
+
+        .editorFrame, .targetFrame {
+            position: absolute;
+            height: 100%;
+            top: 0;
+            padding: 0.5em;
+        }
+
+        .editorFrame {
+            left: 0;
+            width: 100%;
+        }
+
+        &.withTargetFrame {
+            .editorFrame, .targetFrame {
+                width: 50%;
+            }
+
+            .editorFrame {
+                padding-right: 0;
+            }
+
+            .targetFrame {
+                left: 50%;
+            }
+        }
+
+        .targetFrame iframe {
+            z-index: 14;
+            background-color: #444;
+            background-image: url(doge.svg);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .loaderFrame {
+            z-index: 15;
+            background-color: #444;
+            background-image: url(doge.svg);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .CodeMirror {
+            font-family: @codeFont;
+            line-height: 1.2em;
+            font-size: 0.4em;
+
+        }
+
+        .CodeMirror, .loaderFrame, .targetFrame iframe {
+            box-shadow: 0 0.1em 0.2em rgba(0, 0, 0, 0.6);
+            border-radius: 0.1em;
+        }
+    }
+
+    &.nobg {
+        background-color: rgba(0,0,0,0);
+    }
+
+    &.photo {
+        background-size: contain;
+        background-color: rgba(0,0,0,0);
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+    }
+
+    &.photobg {
+        background-size: cover;
+        background-color: rgba(0,0,0,0);
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+    }
+
+    &.white {
+        text-align: center;
+
+        h1, h2, h3, h4, h5, h6, p, a, li {
+            color: white;
+            text-shadow: 0 -0.05em 0.1em black, 0 0.05em 0.1em black, 0 0.1em 0.3em black;
+            background: none;
+            font-weight: normal;
+        }
+    }
+
+    &.align-bottom {
+        display: -webkit-box;
+        display: -moz-box;
+        display: box;
+        -webkit-box-pack: end;
+        -webkit-box-align: end;
+        -moz-box-pack: end;
+        -moz-box-align: end;
+        box-pack: end;
+        box-align: end;
+        padding-bottom: 0.5em;
+    }
+
+    &.align-left {
+        padding-left: 1em;
+        padding-right: 1em;
+        text-align: left;
+        h1, h2, h3, h4, h5, h6 {
+            text-align: left;
+        }
+    }
+
+    &.meme {
+        font-family: "League Gothic";
+        font-weight: 400;
+        font-size: 1.7em;
+        line-height: 1.2em;
+        color: white;
+        // text-transform: uppercase;
+        padding: 0;
+        p {
+            position: absolute;
+            text-align: center;
+            width: 100%;
+            line-height: 1em;
+            margin: 0;
+            text-shadow: 0.04em 0.04em 0.02em black, 0 0.04em 0.02em black, -0.04em 0.04em 0.02em black, 0.04em 0 0.02em black, -0.04em 0 0.02em black, 0.04em -0.04em 0.02em black, 0 -0.04em 0.02em black, -0.04em -0.04em 0.02em black;
+
+            &.top {
+                top: 0.25em;
+            }
+
+            &.bottom {
+                bottom: 0.25em;
+            }
+
+            &.small {
+                font-size: 0.8em;
+            }
+
+            &.smaller {
+                font-size: 0.7em;
+            }
+        }
+    }
+
+    &.erlang-the-movie {
+        h1, h2, h3, h4, h5, h6, p, a {
+            font-weight: bolder;
+            -webkit-transform: scale(0.8, 1);
+            -moz-transform: scale(0.8, 1);
+            transform: scale(0.8, 1);
+            margin: 0;
+        }
+        p {
+            font-size: 0.9em;
+            margin: 0 -6em;
+        }
+    }
+
+    p.media-credit {
+        font-size: 0.7em;
+    }
+}
+
+/* CodeMirror extras for the editor plugin */
+
+.CodeMirror-hints,
+.CodeMirror-Tern-tooltip {
+    font-family: @codeFont;
+    line-height: 1.2em;
+    font-size: 0.5em !important;
+    text-shadow: none;
+
+    & li {
+        text-shadow: none;
+    }
+}
+
+.cm-errors {
+    width: 1em;
+}
+
+.CodeMirror-gutter-wrapper .cm-error {
+    width: 1em;
+    height: 1em;
+    background: url(red-doge.svg);
+    background-size: contain;
+}
+
+body.cheatmode {
+    .slides.primary {
+        width: 100%;
+        height: 100%;
+        transform: translate(-20%, 0) scale(0.6);
+    }
+    .slides.secondary {
+        width: 100%;
+        height: 100%;
+        transform: translate(30%, 0) scale(0.4);
+    }
+}
