@@ -12,14 +12,20 @@
     body { visibility: hidden; background: black; }
     div.izquierda { text-align: left;  }
     h2.izquierda { text-align: left;  }
+    .row { display: flex;}
+    .column { flex: 50%;}
+
+    .goose {
+        position: absolute;
+    }
     </style>
   </head>
   <body>
 
     <div id="slides">
 
-      <section >
-        <img src="slide01.png" alt=""> 
+      <section class="photo" style="background-color:white">
+        <img src="cover_imagenes/slide0.png" >  
       </section>
 
       <section>
@@ -35,8 +41,8 @@
       </section>
 
       <section >
-        <h1>el Jardín de las delicias de Bosch</h1>
-  
+        <h2>el Jardín de las delicias</h2>
+        <h2>de Bosch</h2>
       </section>
 
       <section >
@@ -46,7 +52,9 @@
       
 
       <section >
-        <h1>el Scrum is not Agile and the waterfall strawman </h1>
+        <h2>el Scrum is not Agile</h2>
+        <h2>&</h2>
+        <h2>the waterfall strawman </h2>
       </section>
 
       <section >
@@ -60,22 +68,41 @@
       </section>
 
 
-      <section >
-        <h1>Todo tiempo pasado fue mejor (?) </h1>
+      <section>
+          <img class="goose" src="imagenes/goose.png" alt=""> 
+        <div class="row">
+            
+          <div class="column" style="background-color:#aaa;">
+            <img src="imagenes/old-programmer-1970.jpg" alt="">  
+          </div>
+          
+          <div class="column" style="background-color:#bbb;">
+            <img src="imagenes/hackerman2000s.jpg" alt="">  
+          </div>
+        </div>
       </section>
       
       <section>
-        <h4>El MITO del 10x engineer</h4>
-        <img src="Hauche.jpg" alt="">  
+        <h3>El MITO del 10x engineer</h3>
+        <img src="imagenes/10xEngineer.png" alt="">  
       </section>
 
       <section>
         <h2>El Elefante en la Sala</h2>
       </section>
 
-      <section>
+
+      <section style="background-color:black">
         <h2>"La meritocracia""</h2>
         <img src="imagenes/Eduardo_Galeano.png" alt="">  
+      </section>
+
+      <section >
+        <h1>Todo tiempo pasado fue mejor (?) </h1>
+      </section>
+
+      <section  style="background-color:black">
+        <img src="imagenes/patrick-stewart-black-background.jpg" alt="">  
       </section>
 
       </div>
